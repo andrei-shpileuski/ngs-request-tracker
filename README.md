@@ -1,27 +1,111 @@
-# NgsRequestTracker
+# ngs-request-tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+`ngs-request-tracker` is a library for tracking (requestTrackerInterceptor), storing (RequestTrackerService) and displaying statistics (RequestTrackerComponent) on all http requests.
 
-## Development server
+![img.png](img.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Navigation
 
-## Code scaffolding
+- [Installation & Usage](#installation--usage)
+1. **[Track 'is loading'](#--track-is-loading)**: - for managing loaders or spinners in the UI during ongoing network operations.
+2. **[Track all requests stats]()** - UI component for displaying statistics.
+- [Contributing](#contributing)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Installation & Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install `ngs-request-tracker` via npm:
 
-## Running unit tests
+```bash
+npm install ngs-request-tracker
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+- ### Track 'is loading'
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+app.config.ts:
+```typescript
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient(withInterceptors([requestTrackerInterceptor])) //add requestTrackerInterceptor interceptor
+  ]
+};
+```
 
-## Further help
+your.component.ts:
+```typescript
+@Component({
+  selector: 'app-your',
+  template: `
+    <div *ngIf="requestTracker.isInProgress()">Loading...</div>
+    <div *ngIf="requestTracker.isInProgress$ | async">Loading...</div>
+  `,
+  imports: [AsyncPipe]
+})
+export class YourComponent {
+  constructor(public requestTracker: RequestTrackerService) {}
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+- ### Track all requests stats
+![img.png](img.png)
+
+app.config.ts:
+```typescript
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient(withInterceptors([requestTrackerInterceptor])) //add requestTrackerInterceptor interceptor
+  ]
+};
+```
+
+your.component.ts:
+```typescript
+@Component({
+  selector: 'app-your',
+  standalone: true,
+  imports: [RequestTrackerComponent],
+  template: `
+    @if (isDevMode) {
+        <ngs-request-tracker
+        [xPosition]="'right'" 
+        [yPosition]="'bottom'"
+      ></ngs-request-tracker>
+    }
+  `,
+  styleUrl: './app.component.scss',
+})
+export class YourComponent {
+  isDevMode = isDevMode(); // use as desired
+}
+```
+
+---
+
+## Contributing
+
+To contribute or use the library in development mode, you can clone the repository and install dependencies.
+
+### Steps to contribute:
+
+1. Fork the repository
+2. Clone the repo, install dependencies
+
+```bash
+git clone https://github.com/andrei-shpileuski/ngs-request-tracker.git
+```
+
+```bash
+cd ngs-request-tracker
+```
+
+```bash
+npm install
+```
+
+3. Create a new branch for your changes
+4. Submit a pull request with a detailed description of the changes
