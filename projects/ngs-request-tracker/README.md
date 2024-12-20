@@ -2,7 +2,7 @@
 
 `ngs-request-tracker` is a library for tracking (requestTrackerInterceptor), storing (RequestTrackerService) and displaying statistics (RequestTrackerComponent) on all http requests.
 
-![img.png](assets/img.png)
+![img.png](https://raw.githubusercontent.com/andrei-shpileuski/ngs-request-tracker/refs/heads/main/img.png)
 
 ### Navigation
 
@@ -52,7 +52,8 @@ export class YourComponent {
 ---
 
 ### Track all requests stats
-![img.png](assets/img.png)
+
+![img.png](https://raw.githubusercontent.com/andrei-shpileuski/ngs-request-tracker/refs/heads/main/img.png)
 
 app.config.ts:
 ```typescript
