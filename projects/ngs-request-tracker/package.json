@@ -1,0 +1,26 @@
+{
+  "name": "ngs-request-tracker",
+  "version": "0.0.1",
+  "keywords": [
+    "angular",
+    "ng",
+    "request",
+    "http",
+    "response",
+    "interceptor",
+    "analytics",
+    "perfomance",
+    "monitoring",
+    "tracker"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^18.2.0",
+    "@angular/core": "^18.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "author": "Andrei Shpileuski",
+  "license": "MIT",
+  "sideEffects": false
+}

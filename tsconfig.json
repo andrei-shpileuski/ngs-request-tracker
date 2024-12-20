@@ -11,6 +11,11 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
+    "paths": {
+      "ngs-request-tracker": [
+        "./dist/ngs-request-tracker"
+      ]
+    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,

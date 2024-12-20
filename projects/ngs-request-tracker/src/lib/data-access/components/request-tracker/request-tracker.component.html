@@ -1,0 +1,62 @@
+<div
+  class="request-tracker {{ 'x-position-' + xPosition() }} {{
+    'y-position-' + yPosition()
+  }}"
+>
+  <div class="title-wrapper">
+    <span class="request-tracker_title">ngs-request-tracker</span>
+    <div class="spinner" [ngClass]="{ loading: isLoading() }"></div>
+  </div>
+
+  <div class="request-tracker__rows">
+    <span class="request-tracker__rows_row"
+      ><span>Total:</span><span class="blue">{{ count() }}</span></span
+    >
+    <span class="request-tracker__rows_row"
+      ><span>Active:</span
+      ><span class="orange">{{ countInProgress() }}</span></span
+    >
+
+    <div class="wrapper">
+      <span class="request-tracker__rows_row" style="flex: 1"
+        ><span>Success:</span
+        ><span class="green">{{ countSuccess() }}</span></span
+      >
+      <span class="request-tracker__rows_row"
+        ><span class="green" style="min-width: 50px; text-align: end"
+          >{{ successRate() | number: "1.0-2" }}%</span
+        ></span
+      >
+    </div>
+
+    <div class="wrapper">
+      <span class="request-tracker__rows_row" style="flex: 1"
+        ><span>Aborted:</span
+        ><span class="blueviolet">{{ countAborted() }}</span></span
+      >
+      <span class="request-tracker__rows_row"
+        ><span class="blueviolet" style="min-width: 50px; text-align: end"
+          >{{ abortedRate() | number: "1.0-2" }}%</span
+        ></span
+      >
+    </div>
+
+    <div class="wrapper">
+      <span class="request-tracker__rows_row" style="flex: 1"
+        ><span>Failed:</span><span class="red">{{ countError() }}</span></span
+      >
+      <span class="request-tracker__rows_row"
+        ><span style="min-width: 50px; text-align: end" class="red"
+          >{{ errorRate() | number: "1.0-2" }}%</span
+        ></span
+      >
+    </div>
+
+    <span class="request-tracker__rows_row"
+      ><span>Avg. Time:</span
+      ><span class="blue"
+        >{{ averageResponseTime() | number: "1.0-2" }} ms</span
+      ></span
+    >
+  </div>
+</div>

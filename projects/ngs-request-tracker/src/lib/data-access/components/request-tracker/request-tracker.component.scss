@@ -1,0 +1,141 @@
+.request-tracker {
+  margin: 4px;
+  position: fixed;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  width: fit-content;
+  font-family: "Arial", sans-serif;
+  font-size: 0.9rem;
+  z-index: 99999;
+
+  .title-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &.x-position {
+    &-left {
+      left: 0;
+    }
+    &-center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &-right {
+      right: 0;
+    }
+  }
+
+  &.y-position {
+    &-top {
+      top: 0;
+    }
+    &-center {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &-bottom {
+      bottom: 0;
+    }
+  }
+
+  .spinner {
+    min-height: 14px;
+    min-width: 14px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid transparent;
+    border-top-color: orange;
+    border-right-color: orange;
+    border-bottom-color: orange;
+    border-radius: 50%;
+    animation: spinner 1s linear infinite;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    &.loading {
+      opacity: 1;
+    }
+  }
+
+  &_title {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+
+    .dot {
+      height: 2px;
+      width: 2px;
+      background: red;
+    }
+  }
+
+  &__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &_row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 4px 8px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+      span:first-child {
+        color: #757575;
+        font-weight: 600;
+      }
+
+      span:last-child {
+        color: #333;
+      }
+
+      .orange {
+        color: orange !important;
+      }
+
+      .blue {
+        color: blue !important;
+      }
+
+      .green {
+        color: green !important;
+      }
+
+      .red {
+        color: red !important;
+      }
+
+      .blueviolet {
+        color: blueviolet !important;
+      }
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

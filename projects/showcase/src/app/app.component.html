@@ -1,0 +1,13 @@
+<div>
+  @if (isLoading()) {
+    <div>loading...</div>
+  }
+  <button class="buttons" (click)="sendTestRequest()">
+    Send request with random success
+  </button>
+</div>
+
+<ngs-request-tracker
+  [xPosition]="'right'"
+  [yPosition]="'bottom'"
+></ngs-request-tracker>
