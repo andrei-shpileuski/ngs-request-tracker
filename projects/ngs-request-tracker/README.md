@@ -7,8 +7,8 @@
 ### Navigation
 
 - [Installation & Usage](#installation--usage)
-1. **[Track 'is loading'](#--track-is-loading)**: - for managing loaders or spinners in the UI during ongoing network operations.
-2. **[Track all requests stats]()** - UI component for displaying statistics.
+1. **[Track 'is loading'](#track-is-loading)**: - for managing loaders or spinners in the UI during ongoing network operations.
+2. **[Track all requests stats](#track-all-requests-stats)** - UI component for displaying statistics.
 - [Contributing](#contributing)
 
 ---
@@ -23,7 +23,7 @@ npm install ngs-request-tracker
 
 ---
 
-- ### Track 'is loading'
+### Track 'is loading'
 
 app.config.ts:
 ```typescript
@@ -51,7 +51,7 @@ export class YourComponent {
 
 ---
 
-- ### Track all requests stats
+### Track all requests stats
 ![img.png](img.png)
 
 app.config.ts:
